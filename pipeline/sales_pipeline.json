@@ -3,8 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "get the sales data from the blob storage",
-				"type": "Copy",
+				"name": "Lookup1",
+				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -16,41 +16,12 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "DelimitedTextSource",
-						"storeSettings": {
-							"type": "AzureBlobStorageReadSettings",
-							"recursive": true,
-							"enablePartitionDiscovery": false
-						},
-						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
-						}
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "SELECT COUNT(*) AS count FROM [SalesSchema].[SalesTable] WHERE Status = 'Completed'",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
 					},
-					"sink": {
-						"type": "AzureSqlSink",
-						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false,
-						"tableOption": "autoCreate",
-						"disableMetricsCollection": false
-					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "ADS_salesdata",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
+					"dataset": {
 						"referenceName": "ADS_salesdata_sink",
 						"type": "DatasetReference",
 						"parameters": {
@@ -58,7 +29,7 @@
 							"table": "SalesTable"
 						}
 					}
-				]
+				}
 			}
 		],
 		"annotations": []
