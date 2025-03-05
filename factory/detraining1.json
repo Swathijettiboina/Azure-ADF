@@ -1,0 +1,9 @@
+{
+	"name": "detraining1",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "243d04fb-50e7-44a8-b712-2f6d4eda9256",
+		"tenantId": "2800c0a0-70e9-49be-8733-faeaa6aced99"
+	}
+}

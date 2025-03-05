@@ -1,0 +1,54 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Index",
+				"type": "nvarchar"
+			},
+			{
+				"name": "User Id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "First Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Last Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Gender",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Email",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Phone",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Date of birth",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Job Title",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "my_schema",
+			"table": "sample_table"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
