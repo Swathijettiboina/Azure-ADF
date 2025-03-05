@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "ADS_csvfiles",
+						"referenceName": "ADS_inputfiles",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
@@ -24,6 +24,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -67,10 +68,7 @@
 									"type": "DelimitedTextSource",
 									"storeSettings": {
 										"type": "AzureBlobStorageReadSettings",
-										"fileListPath": {
-											"value": "@item()",
-											"type": "Expression"
-										},
+										"recursive": true,
 										"enablePartitionDiscovery": false
 									},
 									"formatSettings": {
@@ -101,13 +99,25 @@
 							"inputs": [
 								{
 									"referenceName": "ADS_csvfiles",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"filename": {
+											"value": "@item().name",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
 								{
 									"referenceName": "ADS_destination",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"filename": {
+											"value": "@item().name",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
