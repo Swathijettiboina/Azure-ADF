@@ -9,7 +9,7 @@
 		"type": "AzureSqlTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": "altered_schema",
+			"schema": "my_schema",
 			"table": "Altered_customer_table"
 		}
 	}
