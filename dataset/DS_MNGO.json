@@ -1,0 +1,23 @@
+{
+	"name": "DS_MNGO",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MongoDbAtlas1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"collection_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "MongoDbAtlasCollection",
+		"schema": [],
+		"typeProperties": {
+			"collection": {
+				"value": "@dataset().collection_name",
+				"type": "Expression"
+			}
+		}
+	}
+}
