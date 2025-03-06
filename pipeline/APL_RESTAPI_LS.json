@@ -28,7 +28,7 @@
 						},
 						"formatSettings": {
 							"type": "JsonWriteSettings",
-							"filePattern": "setOfObjects"
+							"filePattern": "arrayOfObjects"
 						}
 					},
 					"enableStaging": false
@@ -44,7 +44,7 @@
 						"referenceName": "ADS_REST_API_json_data",
 						"type": "DatasetReference",
 						"parameters": {
-							"filename": "Electronics"
+							"filename": "Electronics_araayOf Objects"
 						}
 					}
 				]
