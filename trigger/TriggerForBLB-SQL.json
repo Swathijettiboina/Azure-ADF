@@ -1,0 +1,25 @@
+{
+	"name": "TriggerForBLB-SQL",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "b-to-sqldb",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 1,
+				"startTime": "2025-03-06T10:54:00",
+				"endTime": "2025-03-05T11:19:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}
