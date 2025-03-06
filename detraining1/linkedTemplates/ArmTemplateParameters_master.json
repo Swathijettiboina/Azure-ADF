@@ -17,6 +17,12 @@
 		"MySqlServer_password": {
 			"value": ""
 		},
+		"LS_MNGO_connectionString": {
+			"value": ""
+		},
+		"MongoDbAtlas1_connectionString": {
+			"value": ""
+		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"value": "mysampledbserver.database.windows.net"
 		},
@@ -34,6 +40,15 @@
 		},
 		"MySqlServer_properties_typeProperties_userName": {
 			"value": "swathijetti"
+		},
+		"ALS_REST_API_properties_typeProperties_url": {
+			"value": "https://jsonplaceholder.typicode.com/users"
+		},
+		"LS_MNGO_properties_typeProperties_database": {
+			"value": "test"
+		},
+		"MongoDbAtlas1_properties_typeProperties_database": {
+			"value": "test"
 		},
 		"containerUri": {
 			"value": ""
