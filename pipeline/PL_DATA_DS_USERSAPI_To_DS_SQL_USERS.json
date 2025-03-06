@@ -38,7 +38,7 @@
 								},
 								"sink": {
 									"name": "id",
-									"type": "Int16"
+									"type": "Int64"
 								}
 							},
 							{
@@ -70,6 +70,60 @@
 							},
 							{
 								"source": {
+									"path": "$['address']['street']"
+								},
+								"sink": {
+									"name": "street",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['address']['suite']"
+								},
+								"sink": {
+									"name": "suite",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['address']['city']"
+								},
+								"sink": {
+									"name": "city",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['address']['zipcode']"
+								},
+								"sink": {
+									"name": "zipcode",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['address']['geo']['lat']"
+								},
+								"sink": {
+									"name": "lat",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['address']['geo']['lng']"
+								},
+								"sink": {
+									"name": "lng",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
 									"path": "$['phone']"
 								},
 								"sink": {
@@ -83,6 +137,33 @@
 								},
 								"sink": {
 									"name": "website",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['company']['name']"
+								},
+								"sink": {
+									"name": "company_name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['company']['catchPhrase']"
+								},
+								"sink": {
+									"name": "catchPhrase",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['company']['bs']"
+								},
+								"sink": {
+									"name": "bs",
 									"type": "String"
 								}
 							}
@@ -100,11 +181,38 @@
 						"referenceName": "DS_SQL_REST_USERS",
 						"type": "DatasetReference",
 						"parameters": {
-							"schema_name": "rest_schema",
+							"schema_name": "stage",
 							"table_name": "Users_Table"
 						}
 					}
 				]
+			},
+			{
+				"name": "SP For inserting the data into users deatils table",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "copy data from rest api to sql db",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[filterUsersTable]"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": []

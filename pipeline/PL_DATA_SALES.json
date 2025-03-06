@@ -51,179 +51,50 @@
 					"isSequential": false,
 					"activities": [
 						{
-							"name": "Copy data1",
-							"type": "Copy",
+							"name": "If Condition1",
+							"type": "IfCondition",
 							"dependsOn": [],
-							"policy": {
-								"timeout": "0.12:00:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"userProperties": [
-								{
-									"name": "Source",
-									"value": "sales-container//"
-								},
-								{
-									"name": "Destination",
-									"value": "@{'stage'}.@{'split(@item().name,''.'')[0]'}"
-								}
-							],
+							"userProperties": [],
 							"typeProperties": {
-								"source": {
-									"type": "DelimitedTextSource",
-									"storeSettings": {
-										"type": "AzureBlobStorageReadSettings",
-										"recursive": true,
-										"wildcardFileName": "*",
-										"enablePartitionDiscovery": false
-									},
-									"formatSettings": {
-										"type": "DelimitedTextReadSettings"
-									}
+								"expression": {
+									"value": "",
+									"type": "Expression"
 								},
-								"sink": {
-									"type": "AzureSqlSink",
-									"writeBehavior": "insert",
-									"sqlWriterUseTableLock": false,
-									"tableOption": "autoCreate",
-									"disableMetricsCollection": false
-								},
-								"enableStaging": false,
-								"translator": {
-									"type": "TabularTranslator",
-									"mappings": [
-										{
-											"source": {
-												"name": "Order ID",
-												"type": "String",
-												"physicalType": "String"
-											},
-											"sink": {
-												"name": "Order ID",
-												"type": "String",
-												"physicalType": "nvarchar"
-											}
+								"ifTrueActivities": [
+									{
+										"name": "copy csv file",
+										"type": "Copy",
+										"dependsOn": [],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
 										},
-										{
-											"source": {
-												"name": "Customer ID",
-												"type": "String",
-												"physicalType": "String"
-											},
+										"userProperties": [],
+										"typeProperties": {
 											"sink": {
-												"name": "Customer ID",
-												"type": "String",
-												"physicalType": "nvarchar"
-											}
+												"type": "AzureSqlSink",
+												"writeBehavior": "insert",
+												"sqlWriterUseTableLock": false,
+												"tableOption": "autoCreate",
+												"disableMetricsCollection": false
+											},
+											"enableStaging": false
 										},
-										{
-											"source": {
-												"name": "Order Line Item ID",
-												"type": "String",
-												"physicalType": "String"
-											},
-											"sink": {
-												"name": "Order Line Item ID",
-												"type": "String",
-												"physicalType": "nvarchar"
+										"outputs": [
+											{
+												"referenceName": "DS_SQL_SALES_FILES",
+												"type": "DatasetReference",
+												"parameters": {
+													"schema_name": "stage"
+												}
 											}
-										},
-										{
-											"source": {
-												"name": "Product ID",
-												"type": "String",
-												"physicalType": "String"
-											},
-											"sink": {
-												"name": "Product ID",
-												"type": "String",
-												"physicalType": "nvarchar"
-											}
-										},
-										{
-											"source": {
-												"name": "Quantity",
-												"type": "String",
-												"physicalType": "String"
-											},
-											"sink": {
-												"name": "Quantity",
-												"type": "String",
-												"physicalType": "nvarchar"
-											}
-										},
-										{
-											"source": {
-												"name": "Order Date",
-												"type": "String",
-												"physicalType": "String"
-											},
-											"sink": {
-												"name": "Order Date",
-												"type": "String",
-												"physicalType": "nvarchar"
-											}
-										},
-										{
-											"source": {
-												"name": "Status",
-												"type": "String",
-												"physicalType": "String"
-											},
-											"sink": {
-												"name": "Status",
-												"type": "String",
-												"physicalType": "nvarchar"
-											}
-										},
-										{
-											"source": {
-												"name": "Last Modified Date",
-												"type": "String",
-												"physicalType": "String"
-											},
-											"sink": {
-												"name": "Last Modified Date",
-												"type": "String",
-												"physicalType": "nvarchar"
-											}
-										}
-									],
-									"typeConversion": true,
-									"typeConversionSettings": {
-										"allowDataTruncation": true,
-										"treatBooleanAsNumber": false
+										]
 									}
-								}
-							},
-							"inputs": [
-								{
-									"referenceName": "DS_SALES_FILES",
-									"type": "DatasetReference",
-									"parameters": {
-										"file_name": {
-											"value": "@item().name",
-											"type": "Expression"
-										}
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "DS_SQL_SALES_FILES",
-									"type": "DatasetReference",
-									"parameters": {
-										"schema_name": "stage",
-										"table_name": {
-											"value": "split(item().name,'.')[0]",
-											"type": "Expression"
-										}
-									}
-								}
-							]
+								]
+							}
 						}
 					]
 				}
