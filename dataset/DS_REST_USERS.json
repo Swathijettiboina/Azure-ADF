@@ -1,0 +1,12 @@
+{
+	"name": "DS_REST_USERS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ALS_REST_API",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"schema": []
+	}
+}
