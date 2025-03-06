@@ -1,0 +1,19 @@
+{
+	"name": "DS_EXCEL_SALES",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Data",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "sales-container"
+			}
+		},
+		"schema": []
+	}
+}
