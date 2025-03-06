@@ -45,7 +45,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('GetMetaData').output.childItems",
+						"value": "@activity('GET Data about the sales Container').output.childItems",
 						"type": "Expression"
 					},
 					"isSequential": false,
@@ -77,6 +77,7 @@
 									"storeSettings": {
 										"type": "AzureBlobStorageReadSettings",
 										"recursive": true,
+										"wildcardFileName": "*",
 										"enablePartitionDiscovery": false
 									},
 									"formatSettings": {
@@ -96,7 +97,98 @@
 									"mappings": [
 										{
 											"source": {
-												"name": ""
+												"name": "Order ID",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "Order ID",
+												"type": "String",
+												"physicalType": "nvarchar"
+											}
+										},
+										{
+											"source": {
+												"name": "Customer ID",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "Customer ID",
+												"type": "String",
+												"physicalType": "nvarchar"
+											}
+										},
+										{
+											"source": {
+												"name": "Order Line Item ID",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "Order Line Item ID",
+												"type": "String",
+												"physicalType": "nvarchar"
+											}
+										},
+										{
+											"source": {
+												"name": "Product ID",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "Product ID",
+												"type": "String",
+												"physicalType": "nvarchar"
+											}
+										},
+										{
+											"source": {
+												"name": "Quantity",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "Quantity",
+												"type": "String",
+												"physicalType": "nvarchar"
+											}
+										},
+										{
+											"source": {
+												"name": "Order Date",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "Order Date",
+												"type": "String",
+												"physicalType": "nvarchar"
+											}
+										},
+										{
+											"source": {
+												"name": "Status",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "Status",
+												"type": "String",
+												"physicalType": "nvarchar"
+											}
+										},
+										{
+											"source": {
+												"name": "Last Modified Date",
+												"type": "String",
+												"physicalType": "String"
+											},
+											"sink": {
+												"name": "Last Modified Date",
+												"type": "String",
+												"physicalType": "nvarchar"
 											}
 										}
 									],
@@ -126,7 +218,7 @@
 									"parameters": {
 										"schema_name": "stage",
 										"table_name": {
-											"value": "split(@item().name,'.')[0]",
+											"value": "split(item().name,'.')[0]",
 											"type": "Expression"
 										}
 									}

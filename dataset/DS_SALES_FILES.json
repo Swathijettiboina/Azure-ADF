@@ -15,7 +15,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"container": "sales-container"
+				"container": "orders"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
