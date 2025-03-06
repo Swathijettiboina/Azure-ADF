@@ -1,0 +1,12 @@
+{
+	"name": "ADS_rest_API",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ALS_REST_API",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"schema": []
+	}
+}
