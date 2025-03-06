@@ -1,0 +1,25 @@
+{
+	"name": "TR_Sales_analysis",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PL_Master_Sales",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 1,
+				"startTime": "2025-03-07T20:59:00",
+				"endTime": "2025-03-08T23:00:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}
