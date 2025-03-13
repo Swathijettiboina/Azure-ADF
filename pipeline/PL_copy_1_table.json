@@ -1,5 +1,5 @@
 {
-	"name": "PL_GET_EVENTDATA_TABLE_INFO",
+	"name": "PL_copy_1_table",
 	"properties": {
 		"activities": [
 			{
@@ -15,10 +15,8 @@
 				},
 				"userProperties": [
 					{
-						"name": "schema_name"
-					},
-					{
-						"name": "table_name"
+						"name": "Source",
+						"value": "dbo.country_region_table"
 					}
 				],
 				"typeProperties": {
@@ -30,7 +28,10 @@
 					"sink": {
 						"type": "SnowflakeV2Sink",
 						"importSettings": {
-							"type": "SnowflakeImportCopyCommand"
+							"type": "SnowflakeImportCopyCommand",
+							"additionalCopyOptions": {
+								"FORCE": "TRUE"
+							}
 						}
 					},
 					"enableStaging": true,
