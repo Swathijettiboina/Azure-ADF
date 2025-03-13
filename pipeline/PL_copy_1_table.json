@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "copy event data tables from ssms to snowflake",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -28,10 +28,7 @@
 					"sink": {
 						"type": "SnowflakeV2Sink",
 						"importSettings": {
-							"type": "SnowflakeImportCopyCommand",
-							"additionalCopyOptions": {
-								"FORCE": "TRUE"
-							}
+							"type": "SnowflakeImportCopyCommand"
 						}
 					},
 					"enableStaging": true,
@@ -52,11 +49,7 @@
 				"outputs": [
 					{
 						"referenceName": "DS_SNFLK",
-						"type": "DatasetReference",
-						"parameters": {
-							"schema_name": "staging",
-							"table_name": "cutsomer_table"
-						}
+						"type": "DatasetReference"
 					}
 				]
 			}

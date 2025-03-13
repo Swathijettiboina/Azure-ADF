@@ -9,14 +9,8 @@
 		"type": "SnowflakeV2Table",
 		"schema": [],
 		"typeProperties": {
-			"schema": {
-				"value": "@dataset().schema_name",
-				"type": "Expression"
-			},
-			"table": {
-				"value": "@dataset().table_name",
-				"type": "Expression"
-			}
+			"schema": "STAGING",
+			"table": "PRODUCTS_TABLE"
 		}
 	}
 }
