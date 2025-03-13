@@ -5,7 +5,8 @@
 		"annotations": [],
 		"type": "AzureBlobStorage",
 		"typeProperties": {
-			"sasUri": "https://blobstoragetrail1.blob.core.windows.net/output?sp=racwdli&st=2025-03-13T13:50:51Z&se=2025-03-16T21:50:51Z&sv=2022-11-02&sr=c&sig=hOQC6uc7RbK3Njy6urJXS6awjc19TAcmGnWPjLTNAkM%3D?https://blobstoragetrail1.blob.core.windows.net/output?sp=racwdli&st=2025-03-13T12:59:50Z&se=2025-03-13T20:59:50Z&spr=https&sv=2022-11-02&sr=c&sig=IK%2FljLnDb08pL5rS2WFK6QBi95OFHyeTd6B8bom7QIY%3D"
+			"sasUri": "https://blobstoragetrail1.blob.core.windows.net/output",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIwOWVmYzNjYi04ZjM0LTQyZGItYjE4MC00NGNlZWEwYTAxYmMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "IrSsms",
