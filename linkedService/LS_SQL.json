@@ -8,10 +8,14 @@
 			"server": "JM-DKT-038\\MSSQLSERVER01",
 			"database": "eveny_data",
 			"encrypt": "optional",
-			"trustServerCertificate": false,
-			"authenticationType": "Windows",
-			"userName": "AzureAD\\SwathiJettiboina",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDU4RkIwREQxLUQwOTEtNERDRC1CMTI4LUI0RTUwRjk0RDdDRF9lZWRiMzk4Zi04MDAwLTRjNDYtYWE3My0xZjIwMDQ1M2FiYzkiDQp9"
+			"trustServerCertificate": true,
+			"authenticationType": "SQL",
+			"userName": "sa",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIyNzFkMzI2OC05ODc5LTQwNzMtYmJmZC04NWU2ODk5OTgyOWIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "IrSsms",
+			"type": "IntegrationRuntimeReference"
 		}
 	}
 }
