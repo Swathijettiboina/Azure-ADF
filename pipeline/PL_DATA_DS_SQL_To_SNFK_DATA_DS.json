@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "ForEach1",
+				"name": "For each table in the events",
 				"type": "ForEach",
 				"dependsOn": [],
 				"userProperties": [],
