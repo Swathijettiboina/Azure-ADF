@@ -1,0 +1,7 @@
+{
+	"name": "IrSsms",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "this IR for SSMS"
+	}
+}
