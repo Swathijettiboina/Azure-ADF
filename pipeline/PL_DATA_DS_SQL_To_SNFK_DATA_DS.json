@@ -1,20 +1,6 @@
 {
 	"name": "PL_DATA_DS_SQL_To_SNFK_DATA_DS",
 	"properties": {
-		"activities": [
-			{
-				"name": "For each table in the events",
-				"type": "ForEach",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"items": {
-						"value": "@variables('tables')",
-						"type": "Expression"
-					}
-				}
-			}
-		],
 		"variables": {
 			"tables": {
 				"type": "Array",
