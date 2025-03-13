@@ -8,6 +8,10 @@
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@variables('tables')",
+						"type": "Expression"
+					},
 					"activities": [
 						{
 							"name": "Copy table into snowflake",
@@ -33,7 +37,14 @@
 										"type": "SnowflakeImportCopyCommand"
 									}
 								},
-								"enableStaging": false
+								"enableStaging": true,
+								"stagingSettings": {
+									"linkedServiceName": {
+										"referenceName": "LS_BLB_EVENT_DATA",
+										"type": "LinkedServiceReference"
+									},
+									"path": ""
+								}
 							},
 							"inputs": [
 								{
@@ -52,6 +63,18 @@
 				}
 			}
 		],
+		"variables": {
+			"tables": {
+				"type": "Array",
+				"defaultValue": [
+					"[\"country_region_table\"",
+					"customers_table",
+					"",
+					"transactions_table",
+					"products_table"
+				]
+			}
+		},
 		"annotations": []
 	}
 }
